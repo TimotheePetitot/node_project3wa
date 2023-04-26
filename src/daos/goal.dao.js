@@ -47,7 +47,7 @@ const getAllGoals = async () => {
 		const goals = await Goal.findAll({
 			include: {
 				model: User,
-				as: "Users",
+				as: "users",
 				attributes: ["id", "pseudo", "user_img"],
 				through: { attributes: [] }, // pour exclure les attributs de la table de relations
 			},
@@ -65,7 +65,7 @@ const getGoalById = async (id) => {
 		const goal = await Goal.findByPk(id, {
 			include: {
 				model: User,
-				as: "Users",
+				as: "users",
 				attributes: ["id", "pseudo", "user_img"],
 				through: { attributes: [] }, // pour exclure les attributs de la table de relations
 			},

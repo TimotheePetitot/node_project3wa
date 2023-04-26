@@ -16,10 +16,12 @@ const createGoal = async (req, res) => {
 			frequency,
 			userIds,
 		} = req.body;
+
 		const decodedtype = type.replaceAll("&#x2F;", "/");
 		const decodedName = name.replaceAll("&#x27;", "'");
 		const decodedDescription = description.replaceAll("&#x27;", "'");
 		const author_id = req.body.userId;
+
 		const goal = await GoalDAO.createGoal(
 			decodedName,
 			decodedDescription,
